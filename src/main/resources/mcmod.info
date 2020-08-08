@@ -1,0 +1,16 @@
+[
+{
+  "modid": "soulforging",
+  "name": "Soul Forging",
+  "description": "A funny mod.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["_t2ake","Hinageshi"],
+  "credits": "The Forge and FML guys, for making this practice",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
