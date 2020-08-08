@@ -9,8 +9,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.Logger;
 
 @Mod(modid = SoulForging.MODID, name = SoulForging.NAME, version = SoulForging.VERSION)
-public class SoulForging
-{
+public class SoulForging {
     public static final String MODID = "soulforging";
     public static final String NAME = "SoulForging";
     public static final String VERSION = "1.0";
@@ -24,8 +23,7 @@ public class SoulForging
     }
 
     @EventHandler
-    public void init(FMLInitializationEvent event)
-    {
+    public void init(FMLInitializationEvent event) {
         // some example code
         logger.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
     }

@@ -16,12 +16,14 @@ public class ItemRegistryHandler {
     public static final ItemDirtBall DIRT_BALL=new ItemDirtBall();
     public static final ItemBrokenSoul BROKEN_SOUL=new ItemBrokenSoul();
     public static final ItemPureSoul PURE_SOUL=new ItemPureSoul();
+    public static final ItemSoulBottle SOUL_BOTTLE=new ItemSoulBottle();
     @SubscribeEvent
     public static void onRegistry(Register<Item> event){
         IForgeRegistry<Item> registry=event.getRegistry();
         registry.register(DIRT_BALL);
         registry.register(BROKEN_SOUL);
         registry.register(PURE_SOUL);
+        registry.register(SOUL_BOTTLE);
     }
 
     @SubscribeEvent
@@ -33,6 +35,8 @@ public class ItemRegistryHandler {
                 new ModelResourceLocation(BROKEN_SOUL.getRegistryName(), "inventory"));
         ModelLoader.setCustomModelResourceLocation(PURE_SOUL, 0,
                 new ModelResourceLocation(PURE_SOUL.getRegistryName(), "inventory"));
+        ModelLoader.setCustomModelResourceLocation(SOUL_BOTTLE, 0,
+                new ModelResourceLocation(SOUL_BOTTLE.getRegistryName(), "inventory"));
     }
 }
 
