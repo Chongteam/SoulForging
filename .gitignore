@@ -20,3 +20,9 @@ build
 # other
 eclipse
 run
+
+# vscode
+.vscode
+
+# 一些不必要的LICENSE等txt文件
+*.txt
