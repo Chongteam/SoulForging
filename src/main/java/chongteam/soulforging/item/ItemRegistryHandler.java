@@ -39,4 +39,3 @@ public class ItemRegistryHandler {
                 new ModelResourceLocation(SOUL_BOTTLE.getRegistryName(), "inventory"));
     }
 }
-

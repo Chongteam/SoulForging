@@ -5,7 +5,7 @@ import net.minecraft.item.Item;
 
 public class ItemPureSoul extends Item {
     public ItemPureSoul() {
-        this.setUnlocalizedName(SoulForging.MODID + ".puresoul");
+        this.setUnlocalizedName(SoulForging.MODID + ".pureSoul");
         this.setRegistryName("pure_soul");
         this.setMaxStackSize(64);
     }
