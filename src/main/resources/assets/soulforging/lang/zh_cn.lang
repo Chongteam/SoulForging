@@ -3,3 +3,5 @@ tile.soulforging.compressedDirt.name=压缩泥土
 item.soulforging.brokenSoul.name=破损的灵魂
 item.soulforging.pureSoul.name=纯净的灵魂
 item.soulforging.soulBottle.name=灵魂瓶
+
+itemGroup.soulforging=SoulForging 物品栏示例
