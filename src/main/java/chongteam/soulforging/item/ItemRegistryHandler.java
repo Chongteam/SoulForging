@@ -1,7 +1,9 @@
 package chongteam.soulforging.item;
 
+import chongteam.soulforging.block.BlockRegistryHandler;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent.Register;
@@ -14,28 +16,39 @@ import net.minecraftforge.registries.IForgeRegistry;
 @EventBusSubscriber
 public class ItemRegistryHandler {
     public static final ItemDirtBall DIRT_BALL=new ItemDirtBall();
+    public static final ItemBlock ITEM_COMPRESSED_DIRT=withRegistryName(new ItemBlock(BlockRegistryHandler.BLOCK_COMPRESSED_DIRT));
     public static final ItemBrokenSoul BROKEN_SOUL=new ItemBrokenSoul();
     public static final ItemPureSoul PURE_SOUL=new ItemPureSoul();
     public static final ItemSoulBottle SOUL_BOTTLE=new ItemSoulBottle();
+
+    private static ItemBlock withRegistryName(ItemBlock item){
+        item.setRegistryName(item.getBlock().getRegistryName());
+        return item;
+    }
+
     @SubscribeEvent
     public static void onRegistry(Register<Item> event){
         IForgeRegistry<Item> registry=event.getRegistry();
         registry.register(DIRT_BALL);
+        registry.register(ITEM_COMPRESSED_DIRT);
         registry.register(BROKEN_SOUL);
         registry.register(PURE_SOUL);
         registry.register(SOUL_BOTTLE);
     }
 
+    @SideOnly(Side.CLIENT)
+    private static void registerModel(Item item){
+        ModelResourceLocation modelResourceLocation=new ModelResourceLocation(item.getRegistryName(),"inventory");
+        ModelLoader.setCustomModelResourceLocation(item,0,modelResourceLocation);
+    }
+
     @SubscribeEvent
     @SideOnly(Side.CLIENT)
     public static void onModelRegistry(ModelRegistryEvent event) {
-        ModelLoader.setCustomModelResourceLocation(DIRT_BALL, 0,
-                new ModelResourceLocation(DIRT_BALL.getRegistryName(), "inventory"));
-        ModelLoader.setCustomModelResourceLocation(BROKEN_SOUL, 0,
-                new ModelResourceLocation(BROKEN_SOUL.getRegistryName(), "inventory"));
-        ModelLoader.setCustomModelResourceLocation(PURE_SOUL, 0,
-                new ModelResourceLocation(PURE_SOUL.getRegistryName(), "inventory"));
-        ModelLoader.setCustomModelResourceLocation(SOUL_BOTTLE, 0,
-                new ModelResourceLocation(SOUL_BOTTLE.getRegistryName(), "inventory"));
+        registerModel(DIRT_BALL);
+        registerModel(ITEM_COMPRESSED_DIRT);
+        registerModel(BROKEN_SOUL);
+        registerModel(PURE_SOUL);
+        registerModel(SOUL_BOTTLE);
     }
 }
