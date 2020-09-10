@@ -6,6 +6,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.RegistryEvent.Register;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -20,6 +21,8 @@ public class ItemRegistryHandler {
     public static final ItemBrokenSoul BROKEN_SOUL=new ItemBrokenSoul();
     public static final ItemPureSoul PURE_SOUL=new ItemPureSoul();
     public static final ItemSoulBottle SOUL_BOTTLE=new ItemSoulBottle();
+    public static final Item.ToolMaterial DIRT_TOOL_MATERIAL= EnumHelper.addToolMaterial("DIRT",1,44,3.0F,1.0F,5);
+    public static final ItemDirtPickaxe DIRT_PICKAXE=new ItemDirtPickaxe();
 
     private static ItemBlock withRegistryName(ItemBlock item){
         item.setRegistryName(item.getBlock().getRegistryName());
@@ -34,6 +37,7 @@ public class ItemRegistryHandler {
         registry.register(BROKEN_SOUL);
         registry.register(PURE_SOUL);
         registry.register(SOUL_BOTTLE);
+        registry.register(DIRT_PICKAXE);
     }
 
     @SideOnly(Side.CLIENT)
@@ -50,5 +54,6 @@ public class ItemRegistryHandler {
         registerModel(BROKEN_SOUL);
         registerModel(PURE_SOUL);
         registerModel(SOUL_BOTTLE);
+        registerModel(DIRT_PICKAXE);
     }
 }

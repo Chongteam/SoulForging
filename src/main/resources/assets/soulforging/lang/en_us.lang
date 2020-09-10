@@ -3,5 +3,6 @@ tile.soulforging.compressedDirt.name=Compressed Dirt
 item.soulforging.brokenSoul.name=Broken Soul
 item.soulforging.pureSoul.name=Pure Soul
 item.soulforging.soulBottle.name=Soul Bottle
+item.soulforging.dirtPickaxe.name=Dirt Pickaxe
 
 itemGroup.soulforging=SoulForging Creative Tab Example
