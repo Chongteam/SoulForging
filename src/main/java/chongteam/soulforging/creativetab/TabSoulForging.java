@@ -5,7 +5,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 
 public class TabSoulForging extends CreativeTabs {
-    public static final TabSoulForging TAB_SOUL_FORGING=new TabSoulForging();
+    public static final TabSoulForging TAB_SOULFORGING=new TabSoulForging();
 
     public TabSoulForging(){
         super("soulforging");

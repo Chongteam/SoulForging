@@ -12,7 +12,7 @@ public class ItemDirtPickaxe extends ItemPickaxe{
     public ItemDirtPickaxe(){
         super(ItemRegistryHandler.DIRT_TOOL_MATERIAL);
         this.setUnlocalizedName(SoulForging.MODID+".dirtPickaxe");
-        this.setCreativeTab(TabSoulForging.TAB_SOUL_FORGING);
+        this.setCreativeTab(TabSoulForging.TAB_SOULFORGING);
         this.setRegistryName("dirt_pickaxe");
     }
 
@@ -20,6 +20,6 @@ public class ItemDirtPickaxe extends ItemPickaxe{
     public float getDestroySpeed(ItemStack stack, IBlockState state){
         Block block=state.getBlock();
         float speed=super.getDestroySpeed(stack,state);
-        return (block== Blocks.DIRT || block==Blocks.GRASS) ? speed*10 : speed;
+        return (block==Blocks.DIRT || block==Blocks.GRASS || block==Blocks.GRASS_PATH) ? speed*10 : speed;
     }
 }

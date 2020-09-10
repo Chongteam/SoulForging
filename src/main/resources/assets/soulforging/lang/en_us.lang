@@ -4,5 +4,8 @@ item.soulforging.brokenSoul.name=Broken Soul
 item.soulforging.pureSoul.name=Pure Soul
 item.soulforging.soulBottle.name=Soul Bottle
 item.soulforging.dirtPickaxe.name=Dirt Pickaxe
-
+item.soulforging.dirtArmor.feet.name=Dirt Boots
+item.soulforging.dirtArmor.legs.name=Dirt Leggings
+item.soulforging.dirtArmor.chest.name=Dirt Chestplate
+item.soulforging.dirtArmor.head.name=Dirt Helmet
 itemGroup.soulforging=SoulForging Creative Tab Example

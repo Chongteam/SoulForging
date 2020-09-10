@@ -7,7 +7,7 @@ import net.minecraft.item.Item;
 public class ItemDirtBall extends Item {
     public ItemDirtBall() {
         this.setUnlocalizedName(SoulForging.MODID + ".dirtBall");
-        this.setCreativeTab(TabSoulForging.TAB_SOUL_FORGING);
+        this.setCreativeTab(TabSoulForging.TAB_SOULFORGING);
         this.setRegistryName("dirt_ball");
         this.setMaxStackSize(64);
     }

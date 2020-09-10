@@ -1,9 +1,14 @@
 package chongteam.soulforging.item;
 
+import chongteam.soulforging.SoulForging;
 import chongteam.soulforging.block.BlockRegistryHandler;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.init.SoundEvents;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.util.SoundEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.util.EnumHelper;
@@ -23,6 +28,12 @@ public class ItemRegistryHandler {
     public static final ItemSoulBottle SOUL_BOTTLE=new ItemSoulBottle();
     public static final Item.ToolMaterial DIRT_TOOL_MATERIAL= EnumHelper.addToolMaterial("DIRT",1,44,3.0F,1.0F,5);
     public static final ItemDirtPickaxe DIRT_PICKAXE=new ItemDirtPickaxe();
+    public static final ItemArmor.ArmorMaterial DIRT_ARMOR_MATERIAL=EnumHelper.addArmorMaterial("DIRT", SoulForging.MODID+":dirt",5, new int[] {1,2,2,1},9, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER,0);
+
+    public static final ItemDirtArmor DIRT_BOOTS=new ItemDirtArmor(EntityEquipmentSlot.FEET);
+    public static final ItemDirtArmor DIRT_LEGGINGS=new ItemDirtArmor(EntityEquipmentSlot.LEGS);
+    public static final ItemDirtArmor DIRT_CHESTPLATE=new ItemDirtArmor(EntityEquipmentSlot.CHEST);
+    public static final ItemDirtArmor DIRT_HELMET=new ItemDirtArmor(EntityEquipmentSlot.HEAD);
 
     private static ItemBlock withRegistryName(ItemBlock item){
         item.setRegistryName(item.getBlock().getRegistryName());
@@ -38,6 +49,10 @@ public class ItemRegistryHandler {
         registry.register(PURE_SOUL);
         registry.register(SOUL_BOTTLE);
         registry.register(DIRT_PICKAXE);
+        registry.register(DIRT_BOOTS);
+        registry.register(DIRT_LEGGINGS);
+        registry.register(DIRT_CHESTPLATE);
+        registry.register(DIRT_HELMET);
     }
 
     @SideOnly(Side.CLIENT)
@@ -55,5 +70,9 @@ public class ItemRegistryHandler {
         registerModel(PURE_SOUL);
         registerModel(SOUL_BOTTLE);
         registerModel(DIRT_PICKAXE);
+        registerModel(DIRT_BOOTS);
+        registerModel(DIRT_LEGGINGS);
+        registerModel(DIRT_CHESTPLATE);
+        registerModel(DIRT_HELMET);
     }
 }

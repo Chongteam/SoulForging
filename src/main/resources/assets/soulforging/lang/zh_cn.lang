@@ -4,5 +4,8 @@ item.soulforging.brokenSoul.name=破损的灵魂
 item.soulforging.pureSoul.name=纯净的灵魂
 item.soulforging.soulBottle.name=灵魂瓶
 item.soulforging.dirtPickaxe.name=泥土镐
-
+item.soulforging.dirtArmor.feet.name=泥土靴子
+item.soulforging.dirtArmor.legs.name=泥土护腿
+item.soulforging.dirtArmor.chest.name=泥土胸甲
+item.soulforging.dirtArmor.head.name=泥土头盔
 itemGroup.soulforging=SoulForging 物品栏示例
