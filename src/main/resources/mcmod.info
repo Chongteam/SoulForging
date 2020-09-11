@@ -1,0 +1,16 @@
+[
+{
+  "modid": "soulforging",
+  "name": "Soul Forging",
+  "description": "A separate mod of souls and metals.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Chongteam"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
