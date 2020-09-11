@@ -25,10 +25,9 @@ public class TabSoulForging extends CreativeTabs {
     public int getSearchbarWidth(){
         return 45;
     }
-    /**
+
     @Override
     public String getBackgroundImageName(){
         return "soulforging.png";
     }
-    */
 }
