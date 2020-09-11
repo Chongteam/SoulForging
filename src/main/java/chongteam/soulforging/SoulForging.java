@@ -1,5 +1,6 @@
 package chongteam.soulforging;
 
+import chongteam.soulforging.crafting.FurnaceRecipeRegistryHandler;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.Mod;
@@ -24,7 +25,7 @@ public class SoulForging {
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
-        // some example code
+        FurnaceRecipeRegistryHandler.register();
         logger.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
     }
 }
