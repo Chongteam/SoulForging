@@ -10,3 +10,4 @@ item.soulforging.dirtArmor.chest.name=Dirt Chestplate
 item.soulforging.dirtArmor.head.name=Dirt Helmet
 itemGroup.soulforging=SoulForging Creative Tab Example
 enchantment.soulforging.explosion=Explosion
+entity.Villager.soulforging.dirtWorker=Dirt Worker

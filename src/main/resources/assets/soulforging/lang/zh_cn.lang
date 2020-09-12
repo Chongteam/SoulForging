@@ -10,3 +10,4 @@ item.soulforging.dirtArmor.chest.name=泥土胸甲
 item.soulforging.dirtArmor.head.name=泥土头盔
 itemGroup.soulforging=SoulForging 物品栏示例
 enchantment.soulforging.explosion=爆裂魔法
+entity.Villager.soulforging.dirtWorker=尼酱
