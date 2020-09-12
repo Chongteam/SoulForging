@@ -11,3 +11,7 @@ item.soulforging.dirtArmor.head.name=泥土头盔
 itemGroup.soulforging=SoulForging 物品栏示例
 enchantment.soulforging.explosion=爆裂魔法
 entity.Villager.soulforging.dirtWorker=尼酱
+effect.soulforging.dirtProtection=泥土保护
+potion.effect.soulforging.dirtProtection=泥土保护药水
+splash_potion.effect.soulforging.dirtProtection=喷溅型泥土保护药水
+lingering_potion.effect.soulforging.dirtProtection=滞留型泥土保护药水

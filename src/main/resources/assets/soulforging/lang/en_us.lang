@@ -11,3 +11,7 @@ item.soulforging.dirtArmor.head.name=Dirt Helmet
 itemGroup.soulforging=SoulForging Creative Tab Example
 enchantment.soulforging.explosion=Explosion
 entity.Villager.soulforging.dirtWorker=Dirt Worker
+effect.soulforging.dirtProtection=Dirt Protection
+potion.effect.soulforging.dirtProtection=Dirt Protection Potion
+splash_potion.effect.soulforging.dirtProtection=Splash Potion of Dirt Protection
+lingering_potion.effect.soulforging.dirtProtection=Lingering Potion of Dirt
