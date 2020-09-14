@@ -22,9 +22,12 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.Cancelable;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 @EventBusSubscriber
 public class EventHandler {
+    @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public static void onPlayerJoin(EntityJoinWorldEvent event) {
         Entity entity = event.getEntity();
