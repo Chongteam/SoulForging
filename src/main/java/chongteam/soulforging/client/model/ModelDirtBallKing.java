@@ -3,6 +3,7 @@ package chongteam.soulforging.client.model;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
+import net.minecraft.util.math.MathHelper;
 
 public class ModelDirtBallKing extends ModelBase {
     private ModelRenderer body;
@@ -35,5 +36,14 @@ public class ModelDirtBallKing extends ModelBase {
         this.head.render(scale);
         this.leftLeg.render(scale);
         this.rightLeg.render(scale);
+    }
+
+    @Override
+    public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
+        float A=1.25F,w=9.6662F,pi= (float) Math.PI;
+        this.head.rotateAngleX=pi / 180 * headPitch;
+        this.head.rotateAngleY=pi / 180 * netHeadYaw;
+        this.rightLeg.rotateAngleX=MathHelper.cos(limbSwing * w) * limbSwingAmount * A;
+        this.leftLeg.rotateAngleX=MathHelper.cos(limbSwing * w + pi)* limbSwingAmount * A;
     }
 }
