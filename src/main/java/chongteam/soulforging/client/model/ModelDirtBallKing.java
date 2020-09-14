@@ -40,7 +40,7 @@ public class ModelDirtBallKing extends ModelBase {
 
     @Override
     public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
-        float A=1.25F,w=9.6662F,pi= (float) Math.PI;
+        float A=1.25F,w=0.6662F,pi=(float)Math.PI;
         this.head.rotateAngleX=pi / 180 * headPitch;
         this.head.rotateAngleY=pi / 180 * netHeadYaw;
         this.rightLeg.rotateAngleX=MathHelper.cos(limbSwing * w) * limbSwingAmount * A;
