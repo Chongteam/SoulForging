@@ -1,5 +1,6 @@
 package chongteam.soulforging.entity;
 
+import net.minecraft.entity.EnumCreatureType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -12,7 +13,10 @@ public class EntityRegistryHandler {
     public static final EntityEntry DIRT_BALL_KING= EntityEntryBuilder.create()
             .entity(EntityDirtBallKing.class).id(EntityDirtBallKing.ID,0)
             .name(EntityDirtBallKing.NAME)
-            .tracker(80,3,true).build();
+            .tracker(80,3,true)
+            .egg(0x8f563b,0xb59e5f)
+            .spawn(EnumCreatureType.MONSTER,5,4,4,EntityDirtBallKing.BIOMES)
+            .build();
 
     @SubscribeEvent
     public static void onRegistry(RegistryEvent.Register<EntityEntry> event){

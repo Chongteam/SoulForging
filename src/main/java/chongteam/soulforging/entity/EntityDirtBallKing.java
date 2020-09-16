@@ -9,20 +9,25 @@ import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.storage.loot.LootTableList;
 
 import java.util.UUID;
 
 public class EntityDirtBallKing extends EntityMob {
     public static final String ID="dirt_ball_king";
     public static final String NAME= SoulForging.MODID+".DirtBallKing";
+    public static final Biome[] BIOMES=new Biome[]{Biomes.PLAINS,Biomes.SAVANNA,Biomes.SAVANNA_PLATEAU,Biomes.MUTATED_PLAINS};
 
     public EntityDirtBallKing(World worldIn){
         super(worldIn);
@@ -46,13 +51,11 @@ public class EntityDirtBallKing extends EntityMob {
         private AIChangeGrassToDirt(EntityDirtBallKing entity){
             this.entity=entity;
         }
-
         @Override
         public void updateTask(){
             BlockPos blockPos=new BlockPos(this.entity.posX,this.entity.posY-0.2,this.entity.posZ);
             this.entity.world.setBlockState(blockPos, Blocks.DIRT.getDefaultState());
         }
-
         @Override
         public boolean shouldExecute(){
             BlockPos blockPos=new BlockPos(this.entity.posX,this.entity.posY-0.2,this.entity.posZ);
@@ -68,7 +71,7 @@ public class EntityDirtBallKing extends EntityMob {
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.3);
     }
 
-    private static final UUID SPEED_BOOST=UUID.fromString("77b56b3e-c30c-4ee6-8321-ab5631be6381");
+    private static final UUID SPEED_BOOST=UUID.fromString("77b56b3e-c30c-4ee6-8321-ab5631be6381");//UUID
 
     @Override
     public void setAttackTarget(EntityLivingBase entity){
@@ -92,7 +95,8 @@ public class EntityDirtBallKing extends EntityMob {
         return super.onInitialSpawn(difficulty,data);
     }
 
-    private static final DataParameter<Byte> COLOR= EntityDataManager.createKey(EntityDirtBallKing.class, DataSerializers.BYTE);
+    private static final DataParameter<Byte> COLOR= EntityDataManager
+            .createKey(EntityDirtBallKing.class, DataSerializers.BYTE);
 
     @Override
     protected void entityInit(){
@@ -114,5 +118,13 @@ public class EntityDirtBallKing extends EntityMob {
     public void readEntityFromNBT(NBTTagCompound compound){
         super.readEntityFromNBT(compound);
         this.getDataManager().set(COLOR,compound.getByte("Color"));
+    }
+
+    private static final ResourceLocation LOOT_TABLE= LootTableList
+            .register(new ResourceLocation(SoulForging.MODID + ":entities/dirt_ball_king"));
+
+    @Override
+    protected ResourceLocation getLootTable(){
+        return LOOT_TABLE;
     }
 }

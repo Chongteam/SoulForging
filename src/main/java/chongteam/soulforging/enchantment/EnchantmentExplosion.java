@@ -27,9 +27,9 @@ public class EnchantmentExplosion extends Enchantment{
     public int getMaxEnchantability(int enchantmentLevel){
         return 21+enchantmentLevel*5;
     }
-
+    /*
     @Override
     protected boolean canApplyTogether(Enchantment ench){
         return super.canApplyTogether(ench) && Enchantments.SWEEPING != ench;
-    }
+    }*/
 }
