@@ -17,10 +17,15 @@ public class EntityRegistryHandler {
             .egg(0x8f563b,0xb59e5f)
             .spawn(EnumCreatureType.MONSTER,5,4,4,EntityDirtBallKing.BIOMES)
             .build();
+    public static final EntityEntry DIRT_BALL=EntityEntryBuilder.create()
+            .entity(EntityDirtBall.class).id(EntityDirtBall.ID,1)
+            .name(EntityDirtBall.NAME).tracker(64,10,true)
+            .build();
 
     @SubscribeEvent
     public static void onRegistry(RegistryEvent.Register<EntityEntry> event){
         IForgeRegistry<EntityEntry> registry=event.getRegistry();
         registry.register(DIRT_BALL_KING);
+        registry.register(DIRT_BALL);
     }
 }

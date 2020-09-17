@@ -20,3 +20,4 @@ potion.effect.soulforging.dirtProtection=Dirt Protection Potion
 splash_potion.effect.soulforging.dirtProtection=Splash Potion of Dirt Protection
 lingering_potion.effect.soulforging.dirtProtection=Lingering Potion of Dirt
 entity.soulforging.DirtBallKing.name=Dirt Ball King
+entity.soulforging.DirtBall.name=Dirt Ball

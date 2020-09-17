@@ -4,6 +4,7 @@ import chongteam.soulforging.enchantment.EnchantmentRegistryHandler;
 import chongteam.soulforging.entity.EntityDirtBallKing;
 import chongteam.soulforging.potion.PotionRegistryHandler;
 import net.minecraft.block.Block;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -30,6 +31,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import java.util.Map;
+
 @EventBusSubscriber
 public class EventHandler {
     @SideOnly(Side.CLIENT)
@@ -52,7 +55,7 @@ public class EventHandler {
             int level=EnchantmentHelper.getEnchantmentLevel(EnchantmentRegistryHandler.EXPLOSION,heldItemMainhand);
             if(level > 0){
                 Entity target=event.getEntity();
-                target.world.createExplosion(null,target.posX,target.posY,target.posZ,(float) 1*level,false);
+                target.world.createExplosion(null,target.posX,target.posY,target.posZ,(float) 1.5 * level,false);
             }
         }
     }
@@ -60,7 +63,7 @@ public class EventHandler {
     @SubscribeEvent
     public static void onLivingHurt(LivingHurtEvent event){
         DamageSource damageSource=event.getSource();
-        if("fall".equals((damageSource.getDamageType()))){
+        if("fall".equals(damageSource.getDamageType())){
             EntityLivingBase target=event.getEntityLiving();
             Potion potion= PotionRegistryHandler.POTION_DIRT_PROTECTION;
             if(target.isPotionActive(potion)){
@@ -71,6 +74,9 @@ public class EventHandler {
                     event.setAmount(effect.getAmplifier() > 0 ? 0 : event.getAmount() / 2);
                 }
             }
+        }
+        if("explosion.player".equals(damageSource.getDamageType())){
+            //DO SOMETHING
         }
     }
 

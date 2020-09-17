@@ -31,7 +31,7 @@ public class EntityDirtBallKing extends EntityMob {
 
     public EntityDirtBallKing(World worldIn){
         super(worldIn);
-        this.setSize(1.2F,1.95F);
+        this.setSize(1.0F,1.95F);
     }
 
     @Override
