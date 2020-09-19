@@ -4,7 +4,6 @@ import chongteam.soulforging.enchantment.EnchantmentRegistryHandler;
 import chongteam.soulforging.entity.EntityDirtBallKing;
 import chongteam.soulforging.potion.PotionRegistryHandler;
 import net.minecraft.block.Block;
-import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -18,28 +17,19 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.DifficultyInstance;
-import net.minecraft.world.World;
-import net.minecraftforge.event.entity.EntityEvent;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.EntityStruckByLightningEvent;
-import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
-import net.minecraftforge.fml.common.eventhandler.Cancelable;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
-
-import java.util.Map;
 
 @EventBusSubscriber
 public class EventHandler {
-    @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public static void onPlayerJoin(EntityJoinWorldEvent event) {
         Entity entity = event.getEntity();
-        if (entity instanceof EntityPlayer) {
+        if (!entity.world.isRemote && entity instanceof EntityPlayer) {
             String message = "Welcome to SoulForging, " + entity.getName() + "! ";
             TextComponentString text = new TextComponentString(message);
             entity.sendMessage(text);
@@ -55,7 +45,7 @@ public class EventHandler {
             int level=EnchantmentHelper.getEnchantmentLevel(EnchantmentRegistryHandler.EXPLOSION,heldItemMainhand);
             if(level > 0){
                 Entity target=event.getEntity();
-                target.world.createExplosion(null,target.posX,target.posY,target.posZ,(float) 1.5 * level,false);
+                target.world.createExplosion(null,target.posX,target.posY,target.posZ,(float) 1.0 * level,false);
             }
         }
     }
@@ -101,4 +91,5 @@ public class EventHandler {
             event.setCanceled(true);
         }
     }
+
 }

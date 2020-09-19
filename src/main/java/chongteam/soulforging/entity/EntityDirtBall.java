@@ -9,8 +9,6 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
-import javax.xml.transform.Source;
-
 public class EntityDirtBall extends EntityThrowable {
     public static final String ID="dirt_ball";
     public static final String NAME= SoulForging.MODID+".DirtBall";
