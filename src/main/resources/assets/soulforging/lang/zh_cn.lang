@@ -21,3 +21,4 @@ splash_potion.effect.soulforging.dirtProtection=喷溅型泥土保护药水
 lingering_potion.effect.soulforging.dirtProtection=滞留型泥土保护药水
 entity.soulforging.DirtBallKing.name=泥球王
 entity.soulforging.DirtBall.name=泥土球
+tile.soulforging.dirtCompressor.name=泥土压缩机

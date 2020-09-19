@@ -9,10 +9,13 @@ import net.minecraftforge.registries.IForgeRegistry;
 @EventBusSubscriber
 public class BlockRegistryHandler {
     public static final BlockCompressedDirt BLOCK_COMPRESSED_DIRT=new BlockCompressedDirt();
+    public static final BlockDirtCompressor BLOCK_DIRT_COMPRESSOR=new BlockDirtCompressor();
 
     @SubscribeEvent
     public static void onRegistry(Register<Block> event){
         IForgeRegistry<Block> registry=event.getRegistry();
         registry.register(BLOCK_COMPRESSED_DIRT);
+        registry.register(BLOCK_DIRT_COMPRESSOR);
     }
+
 }

@@ -1,0 +1,25 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "X#X",
+    "X%X",
+    "X@X"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:piston"
+    },
+    "%": {
+      "item": "minecraft:glass_pane"
+    },
+    "@": {
+      "item": "minecraft:cobblestone"
+    },
+    "X": {
+      "item": "soulforging:compressed_dirt"
+    }
+  },
+  "result": {
+    "item": "soulforging:dirt_compressor"
+  }
+}

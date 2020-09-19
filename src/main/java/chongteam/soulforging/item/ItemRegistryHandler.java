@@ -30,7 +30,6 @@ public class ItemRegistryHandler {
     public static final ItemDirtPickaxe DIRT_PICKAXE=new ItemDirtPickaxe();
     public static final ItemArmor.ArmorMaterial DIRT_ARMOR_MATERIAL=EnumHelper.addArmorMaterial("DIRT", SoulForging.MODID+":dirt",5, new int[] {1,2,2,1},9, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER,0);
     public static final ItemArmor.ArmorMaterial SOUL_IRON_ARMOR_MATERIAL=EnumHelper.addArmorMaterial("SOUL IRON", SoulForging.MODID+":soul_iron",30, new int[] {3,6,7,3},9, SoundEvents.ITEM_ARMOR_EQUIP_IRON,2);
-
     public static final ItemDirtArmor DIRT_BOOTS=new ItemDirtArmor(EntityEquipmentSlot.FEET);
     public static final ItemDirtArmor DIRT_LEGGINGS=new ItemDirtArmor(EntityEquipmentSlot.LEGS);
     public static final ItemDirtArmor DIRT_CHESTPLATE=new ItemDirtArmor(EntityEquipmentSlot.CHEST);
@@ -39,6 +38,7 @@ public class ItemRegistryHandler {
     public static final ItemSoulIronArmor SOUL_IRON_LEGGINGS=new ItemSoulIronArmor(EntityEquipmentSlot.LEGS);
     public static final ItemSoulIronArmor SOUL_IRON_CHESTPLATE=new ItemSoulIronArmor(EntityEquipmentSlot.CHEST);
     public static final ItemSoulIronArmor SOUL_IRON_HELMET=new ItemSoulIronArmor(EntityEquipmentSlot.HEAD);
+    public static final ItemBlock ITEM_DIRT_COMPRESSOR=withRegistryName(new ItemBlock(BlockRegistryHandler.BLOCK_DIRT_COMPRESSOR));
 
     private static ItemBlock withRegistryName(ItemBlock item){
         item.setRegistryName(item.getBlock().getRegistryName());
@@ -62,6 +62,7 @@ public class ItemRegistryHandler {
         registry.register(SOUL_IRON_LEGGINGS);
         registry.register(SOUL_IRON_CHESTPLATE);
         registry.register(SOUL_IRON_HELMET);
+        registry.register(ITEM_DIRT_COMPRESSOR);
     }
 
     @SideOnly(Side.CLIENT)
@@ -87,6 +88,7 @@ public class ItemRegistryHandler {
         registerModel(SOUL_IRON_LEGGINGS);
         registerModel(SOUL_IRON_CHESTPLATE);
         registerModel(SOUL_IRON_HELMET);
+        registerModel(ITEM_DIRT_COMPRESSOR);
     }
 
 }
