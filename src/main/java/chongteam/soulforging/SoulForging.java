@@ -1,5 +1,6 @@
 package chongteam.soulforging;
 
+import chongteam.soulforging.capability.CapabilityRegistryHandler;
 import chongteam.soulforging.client.renderer.RenderRegistryHandler;
 import chongteam.soulforging.crafting.FurnaceRecipeRegistryHandler;
 import chongteam.soulforging.potion.PotionRegistryHandler;
@@ -29,5 +30,11 @@ public class SoulForging {
     public void init(FMLInitializationEvent event) {
         FurnaceRecipeRegistryHandler.register();
         PotionRegistryHandler.register();
+    }
+
+    @EventHandler
+    public void preInit(FMLPreInitializationEvent event){
+        logger=event.getModLog();
+        CapabilityRegistryHandler.register();
     }
 }
