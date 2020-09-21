@@ -22,6 +22,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
@@ -39,9 +40,7 @@ public class EventHandler {
     public static void onPlayerJoin(EntityJoinWorldEvent event) {
         Entity entity = event.getEntity();
         if (!entity.world.isRemote && entity instanceof EntityPlayer) {
-            String message = "Welcome to SoulForging, " + entity.getName() + "! ";
-            TextComponentString text = new TextComponentString(message);
-            entity.sendMessage(text);
+            entity.sendMessage(new TextComponentTranslation("message.soulforging.welcome",SoulForging.NAME,entity.getName()));
 
             NetworkRegistryHandler.Power.sendClientCustomPacket((EntityPlayer) entity);
 
@@ -126,18 +125,18 @@ public class EventHandler {
         instance.setBluePower(original.getBluePower());
     }
 
-    private static TextComponentString addPower(EntityDirtBallKing entity,DirtBallPower power,float amount){
+    private static TextComponentTranslation addPower(EntityDirtBallKing entity,DirtBallPower power,float amount){
         byte color=entity.getColor();
         if(color == 2){
             power.setGreenPower(power.getGreenPower() + amount);
-            return new TextComponentString("Green power += " + amount);
+            return new TextComponentTranslation("message.soulforging.power.add.green",amount);
         }
         if(color == 1){
             power.setBluePower(power.getBluePower() + amount);
-            return new TextComponentString("Blue power += " + amount);
+            return new TextComponentTranslation("message.soulforging.power.add.blue",amount);
         }
         power.setOrangePower(power.getOrangePower() + amount);
-        return new TextComponentString("Orange power += " + amount);
+        return new TextComponentTranslation("message.soulforging.power.add.orange",amount);
     }
 
     @SubscribeEvent
@@ -148,7 +147,7 @@ public class EventHandler {
             Entity source=event.getSource().getTrueSource();
             if(source instanceof EntityPlayer){
                 DirtBallPower power=source.getCapability(CapabilityRegistryHandler.DIRT_BALL_POWER,null);
-                TextComponentString text=addPower((EntityDirtBallKing) entity,power,amount);
+                TextComponentTranslation text=addPower((EntityDirtBallKing) entity,power,amount);
                 NetworkRegistryHandler.Power.sendClientCustomPacket((EntityPlayer) source);
                 source.sendMessage(text);
             }

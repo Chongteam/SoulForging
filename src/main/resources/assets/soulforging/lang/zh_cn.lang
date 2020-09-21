@@ -22,3 +22,11 @@ lingering_potion.effect.soulforging.dirtProtection=滞留型泥土保护药水
 entity.soulforging.DirtBallKing.name=泥球王
 entity.soulforging.DirtBall.name=泥土球
 tile.soulforging.dirtCompressor.name=泥土压缩机
+message.soulforging.welcome=欢迎 %2$s 来到 %1$s！
+message.soulforging.power.add.blue=蓝色之力 += %.1f
+message.soulforging.power.add.green=绿色之力 += %.1f
+message.soulforging.power.add.Orange=橙色之力 += %.1f
+message.soulforging.power.insufficient=没有足够的力量
+tooltip.soulforging.power.blue=蓝色 %.1f
+tooltip.soulforging.power.green=绿色 %.1f
+tooltip.soulforging.power.orange=橙色 %.1f

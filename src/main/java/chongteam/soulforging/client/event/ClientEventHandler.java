@@ -7,6 +7,7 @@ import chongteam.soulforging.item.ItemRegistryHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -38,9 +39,9 @@ public class ClientEventHandler {
                     mc.ingameGUI.drawTexturedModalRect(width / 2 - 170,height - 35,orange < 4 ? 0 : 9,0,9,9);
                     mc.ingameGUI.drawTexturedModalRect(width / 2 - 170,height - 24,green < 4 ? 0 : 9,0,9,9);
                     mc.ingameGUI.drawTexturedModalRect(width / 2 - 170,height - 13,blue < 4 ? 0 : 9,0,9,9);
-                    mc.ingameGUI.drawString(mc.fontRenderer,"ORANGE " + orange,width / 2 - 158,height - 35,0xFFFFFF);
-                    mc.ingameGUI.drawString(mc.fontRenderer,"GREEN " + green,width / 2 - 158,height - 24,0xFFFFFF);
-                    mc.ingameGUI.drawString(mc.fontRenderer,"BLUE " + blue,width / 2 - 158,height - 13,0xFFFFFF);
+                    mc.ingameGUI.drawString(mc.fontRenderer, I18n.format("tooltip.soulforging.power.orange",orange),width / 2 - 158,height - 35,0xFFFFFF);
+                    mc.ingameGUI.drawString(mc.fontRenderer, I18n.format("tooltip.soulforging.power.green",green),width / 2 - 158,height - 24,0xFFFFFF);
+                    mc.ingameGUI.drawString(mc.fontRenderer, I18n.format("tooltip.soulforging.power.blue",blue),width / 2 - 158,height - 13,0xFFFFFF);
                 }
             }
         }

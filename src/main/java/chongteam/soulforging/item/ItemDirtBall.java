@@ -14,6 +14,7 @@ import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.text.TextComponentScore;
 import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 
 public class ItemDirtBall extends Item {
@@ -38,8 +39,8 @@ public class ItemDirtBall extends Item {
         if(!worldIn.isRemote){
             DirtBallPower power=playerIn.getCapability(CapabilityRegistryHandler.DIRT_BALL_POWER,null);
             float orange=power.getOrangePower(),green=power.getGreenPower(),blue= power.getBluePower();
-            if(orange < 4 || green < 4 || blue <4){
-                playerIn.sendMessage(new TextComponentString("You do not have enouth power"));
+            if(orange < 4 || green < 4 || blue < 4){
+                playerIn.sendMessage(new TextComponentTranslation("message.soulforging.power.insufficient"));
                 return ActionResult.newResult(EnumActionResult.PASS,item);
             }
             power.setOrangePower(orange - 4);

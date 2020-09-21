@@ -22,3 +22,11 @@ lingering_potion.effect.soulforging.dirtProtection=Lingering Potion of Dirt
 entity.soulforging.DirtBallKing.name=Dirt Ball King
 entity.soulforging.DirtBall.name=Dirt Ball
 tile.soulforging.dirtCompressor.name=Dirt Compressor
+message.soulforging.welcome=Welcome to %s, %s!
+message.soulforging.power.add.blue=Blue power += %.1f
+message.soulforging.power.add.green=Green power += %.1f
+message.soulforging.power.add.Orange=orange power += %.1f
+message.soulforging.power.insufficient=You do not have enough power
+tooltip.soulforging.power.blue=BLUE   %.1f
+tooltip.soulforging.power.green=GREEN  %.1f
+tooltip.soulforging.power.orange=ORANGE %.1f
