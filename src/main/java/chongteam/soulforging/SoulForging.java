@@ -3,6 +3,7 @@ package chongteam.soulforging;
 import chongteam.soulforging.capability.CapabilityRegistryHandler;
 import chongteam.soulforging.client.renderer.RenderRegistryHandler;
 import chongteam.soulforging.crafting.FurnaceRecipeRegistryHandler;
+import chongteam.soulforging.network.NetworkRegistryHandler;
 import chongteam.soulforging.potion.PotionRegistryHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -35,6 +36,7 @@ public class SoulForging {
     @EventHandler
     public void preInit(FMLPreInitializationEvent event){
         logger=event.getModLog();
+        NetworkRegistryHandler.register();
         CapabilityRegistryHandler.register();
     }
 }

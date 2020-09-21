@@ -6,6 +6,7 @@ import chongteam.soulforging.capability.DirtBallPower;
 import chongteam.soulforging.capability.DirtBallPowerProvider;
 import chongteam.soulforging.enchantment.EnchantmentRegistryHandler;
 import chongteam.soulforging.entity.EntityDirtBallKing;
+import chongteam.soulforging.network.NetworkRegistryHandler;
 import chongteam.soulforging.potion.PotionRegistryHandler;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -42,6 +43,8 @@ public class EventHandler {
             TextComponentString text = new TextComponentString(message);
             entity.sendMessage(text);
 
+            NetworkRegistryHandler.Power.sendClientCustomPacket((EntityPlayer) entity);
+
             DirtBallPower power=entity.getCapability(CapabilityRegistryHandler.DIRT_BALL_POWER,null);
             float orange=power.getOrangePower(),green=power.getGreenPower(),blue=power.getBluePower();
             String message2="Your power: " + orange  + " (Orange), " + green + " (Green), " + blue + " (Blue).";
@@ -59,7 +62,7 @@ public class EventHandler {
             int level=EnchantmentHelper.getEnchantmentLevel(EnchantmentRegistryHandler.EXPLOSION,heldItemMainhand);
             if(level > 0){
                 Entity target=event.getEntity();
-                target.world.createExplosion(null,target.posX,target.posY,target.posZ,(float) 1.0 * level,false);
+                target.world.createExplosion(null,target.posX,target.posY,target.posZ,(float) 1.5 * level,false);
             }
         }
     }
@@ -146,6 +149,7 @@ public class EventHandler {
             if(source instanceof EntityPlayer){
                 DirtBallPower power=source.getCapability(CapabilityRegistryHandler.DIRT_BALL_POWER,null);
                 TextComponentString text=addPower((EntityDirtBallKing) entity,power,amount);
+                NetworkRegistryHandler.Power.sendClientCustomPacket((EntityPlayer) source);
                 source.sendMessage(text);
             }
         }
