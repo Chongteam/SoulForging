@@ -2,6 +2,7 @@ package chongteam.soulforging.block;
 
 import chongteam.soulforging.SoulForging;
 import chongteam.soulforging.creativetab.TabSoulForging;
+import chongteam.soulforging.network.SoulForgingGuiHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -9,6 +10,7 @@ import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.Mirror;
@@ -58,5 +60,14 @@ public class BlockDirtCompressor extends Block {
     @Override
     public IBlockState withMirror(IBlockState state, Mirror mirror){
         return state.withProperty(FACING,mirror.mirror(state.getValue(FACING)));
+    }
+
+    @Override
+    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn,EnumHand hand,EnumFacing facing,float hitX,float hitY,float hitZ){
+        if(!worldIn.isRemote){
+            int x=pos.getX(),y= pos.getY(),z=pos.getZ();
+            playerIn.openGui(SoulForging.MODID, SoulForgingGuiHandler.DIRT_COMPRESSOR,worldIn,x,y,z);
+        }
+        return  true;
     }
 }

@@ -1,5 +1,6 @@
 package chongteam.soulforging.network;
 
+import chongteam.soulforging.SoulForging;
 import chongteam.soulforging.capability.CapabilityRegistryHandler;
 import chongteam.soulforging.capability.DirtBallPower;
 import io.netty.buffer.ByteBuf;
@@ -19,6 +20,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class NetworkRegistryHandler {
     public static void register(){
         Power.CHANNEL.register(Power.class);
+        NetworkRegistry.INSTANCE.registerGuiHandler(SoulForging.MODID,new SoulForgingGuiHandler());
     }
     public static class Power{
         private static final String NAME="DIRTBALLPOWER";
