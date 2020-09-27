@@ -3,7 +3,9 @@ package chongteam.soulforging.block;
 import chongteam.soulforging.SoulForging;
 import chongteam.soulforging.creativetab.TabSoulForging;
 import chongteam.soulforging.network.SoulForgingGuiHandler;
+import chongteam.soulforging.tileentity.TileEntityDirtCompressor;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyDirection;
@@ -11,14 +13,15 @@ import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.Mirror;
-import net.minecraft.util.Rotation;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.items.IItemHandler;
 
-public class BlockDirtCompressor extends Block {
+public class BlockDirtCompressor extends BlockContainer {
     private static final IProperty<EnumFacing> FACING=PropertyDirection
             .create("facing",EnumFacing.Plane.HORIZONTAL);
     public BlockDirtCompressor(){
@@ -69,5 +72,28 @@ public class BlockDirtCompressor extends Block {
             playerIn.openGui(SoulForging.MODID, SoulForgingGuiHandler.DIRT_COMPRESSOR,worldIn,x,y,z);
         }
         return  true;
+    }
+
+    @Override
+    public TileEntity createNewTileEntity(World world,int meta){
+        return new TileEntityDirtCompressor();
+    }
+
+    @Override
+    public EnumBlockRenderType getRenderType(IBlockState state){
+        return EnumBlockRenderType.MODEL;
+    }
+
+    @Override
+    public void breakBlock(World worldIn, BlockPos pos, IBlockState state){
+        TileEntity tileEntity=worldIn.getTileEntity(pos);
+        Capability<IItemHandler> itemHandlerCapability= CapabilityItemHandler.ITEM_HANDLER_CAPABILITY;
+        IItemHandler up=tileEntity.getCapability(itemHandlerCapability,EnumFacing.UP);
+        IItemHandler down=tileEntity.getCapability(itemHandlerCapability,EnumFacing.DOWN);
+        IItemHandler side=tileEntity.getCapability(itemHandlerCapability,EnumFacing.NORTH);
+        Block.spawnAsEntity(worldIn,pos,up.getStackInSlot(0));
+        Block.spawnAsEntity(worldIn,pos,down.getStackInSlot(0));
+        Block.spawnAsEntity(worldIn,pos,side.getStackInSlot(0));
+        super.breakBlock(worldIn,pos,state);
     }
 }

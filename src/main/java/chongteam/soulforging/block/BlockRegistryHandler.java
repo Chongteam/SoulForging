@@ -1,6 +1,8 @@
 package chongteam.soulforging.block;
 
+import chongteam.soulforging.tileentity.TileEntityDirtCompressor;
 import net.minecraft.block.Block;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.event.RegistryEvent.Register;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -16,6 +18,7 @@ public class BlockRegistryHandler {
         IForgeRegistry<Block> registry=event.getRegistry();
         registry.register(BLOCK_COMPRESSED_DIRT);
         registry.register(BLOCK_DIRT_COMPRESSOR);
+        TileEntity.register(TileEntityDirtCompressor.ID
+                ,TileEntityDirtCompressor.class);
     }
-
 }
