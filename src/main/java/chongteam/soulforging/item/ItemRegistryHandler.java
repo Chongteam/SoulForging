@@ -29,7 +29,7 @@ public class ItemRegistryHandler {
     public static final Item.ToolMaterial DIRT_TOOL_MATERIAL= EnumHelper.addToolMaterial("DIRT",1,44,3.0F,1.0F,5);
     public static final ItemDirtPickaxe DIRT_PICKAXE=new ItemDirtPickaxe();
     public static final ItemArmor.ArmorMaterial DIRT_ARMOR_MATERIAL=EnumHelper.addArmorMaterial("DIRT", SoulForging.MODID+":dirt",5, new int[] {1,2,2,1},9, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER,0);
-    public static final ItemArmor.ArmorMaterial SOUL_IRON_ARMOR_MATERIAL=EnumHelper.addArmorMaterial("SOUL IRON", SoulForging.MODID+":soul_iron",30, new int[] {3,6,7,3},9, SoundEvents.ITEM_ARMOR_EQUIP_IRON,2);
+    public static final ItemArmor.ArmorMaterial SOUL_IRON_ARMOR_MATERIAL=EnumHelper.addArmorMaterial("SOUL_IRON", SoulForging.MODID+":soul_iron",30, new int[] {3,6,7,3},9, SoundEvents.ITEM_ARMOR_EQUIP_IRON,2);
     public static final ItemDirtArmor DIRT_BOOTS=new ItemDirtArmor(EntityEquipmentSlot.FEET);
     public static final ItemDirtArmor DIRT_LEGGINGS=new ItemDirtArmor(EntityEquipmentSlot.LEGS);
     public static final ItemDirtArmor DIRT_CHESTPLATE=new ItemDirtArmor(EntityEquipmentSlot.CHEST);
