@@ -1,8 +1,10 @@
 package chongteam.soulforging.network;
 
+import chongteam.soulforging.tileentity.TileEntityDirtCompressor;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
+import net.minecraft.inventory.IContainerListener;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
@@ -10,10 +12,11 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
-import org.omg.CORBA.IDLTypeHelper;
 
 public class ContainerDirtCompressor extends Container {
     private final World world;
@@ -22,6 +25,13 @@ public class ContainerDirtCompressor extends Container {
     private final IItemHandler up;
     private final IItemHandler side;
     private final IItemHandler down;
+
+    private int compressorProgress=0;
+
+    public int getCompressorProgress(){
+        return this.compressorProgress;
+    }
+
     public ContainerDirtCompressor(EntityPlayer player,World world,int x,int y,int z){
         this.world=world;
         this.pos=new BlockPos(x,y,z);
@@ -46,6 +56,28 @@ public class ContainerDirtCompressor extends Container {
         }
     }
 
+    @Override
+    public void detectAndSendChanges(){
+        super.detectAndSendChanges();
+        TileEntity tileEntity=this.world.getTileEntity(this.pos);
+        if(tileEntity instanceof TileEntityDirtCompressor){
+            int compressorProgress=((TileEntityDirtCompressor) tileEntity).getCompressorProgress();
+            if(compressorProgress != this.compressorProgress){
+                this.compressorProgress=compressorProgress;
+                for(IContainerListener listener : this.listeners){
+                    listener.sendWindowProperty(this,0,compressorProgress);
+                }
+            }
+        }
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void updateProgressBar(int id,int data){
+        if(id == 0){
+            this.compressorProgress=data;
+        }
+    }
     @Override
     public ItemStack transferStackInSlot(EntityPlayer playerIn,int index){
         return ItemStack.EMPTY;

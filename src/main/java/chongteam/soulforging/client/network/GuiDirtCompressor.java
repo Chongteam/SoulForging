@@ -18,7 +18,7 @@ public class GuiDirtCompressor extends GuiContainer {
         super(new ContainerDirtCompressor(player,world,x,y,z));
         this.xSize=176;
         this.ySize=176;
-        //贴图本身依旧是256 x 256
+        //贴图本身依旧is256 x 256
     }
 
     @Override
@@ -35,6 +35,9 @@ public class GuiDirtCompressor extends GuiContainer {
         GlStateManager.color(1.0F,1.0F,1.0F,1.0F);
         this.mc.getTextureManager().bindTexture(TEXTURE);
         this.drawTexturedModalRect(left,top,0,0,this.xSize,this.ySize);
+        int barHeight=16;
+        int barWidth=2 + Math.round(((ContainerDirtCompressor) this.inventorySlots).getCompressorProgress() * 0.35F);
+        this.drawTexturedModalRect(left + 44,top + 59,0,176,barWidth,barHeight);
     }
 
     @Override
